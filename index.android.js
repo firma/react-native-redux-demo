@@ -8,6 +8,6 @@ import React, {
   AppRegistry,
 } from 'react-native';
  
-import App from './app/containers/application';
+import App from './app/containers/appContainer';
 
 AppRegistry.registerComponent('lemonveil', () => App);

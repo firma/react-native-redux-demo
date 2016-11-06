@@ -1,12 +1,26 @@
 import React, {Component} from 'react';
 import  {View, Text} from 'react-native'
 import {connect} from 'react-redux'
-import  {actionCreators} from '../actions/index'
+import  {ActionCreators} from '../actions/index'
 
-export default class app extends Component {
+
+function mapDispatchToProps(dispatch) {
+    return bindActionCreators(ActionCreators, dispatch);
+}
+
+function mapStateToProps(state) {
+    return {
+        navigationState: state.navigationState
+    };
+}
+
+class Application extends Component {
     render() {
-        <Text style={{marginTop: 20}}>
-            I am App index
-        </Text>
+        <View>
+            <Text style={{marginTop: 20}}>
+                I am App index
+            </Text>
+        </View>
     }
 }
+export default connect(mapStateToProps, mapDispatchToProps)(Application);

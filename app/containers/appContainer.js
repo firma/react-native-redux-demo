@@ -1,12 +1,12 @@
 import React, {Component} from 'react';
-import {Platform} from 'react-native';
+import {Platform, View, Text} from 'react-native';
 
-import {Provider, connect} from 'react-redux';
 import {createStore, applyMiddleware, combineReducers, compose} from 'redux'
 import thunkMiddleware from 'redux-thunk'
 import createLogger from 'redux-logger'
+import {Provider} from 'react-redux'
+import  reducer from '../reducers'
 
-import reducers from '../reducers';
 const loggerMiddleware = createLogger({predicate: (getState, action) => __DEV__});
 
 function configureStore(initialState) {
@@ -16,21 +16,21 @@ function configureStore(initialState) {
             loggerMiddleware,
         ),
     );
-    return createStore(reducers, initialState, enhancer);
+    return createStore(reducer, initialState, enhancer);
 }
 
-const AppContainer = (Platform.OS === 'ios') ? require('./app.ios.js') : require('./app.android.js');
-
 const store = configureStore({});
+const Application = (Platform.OS === 'ios') ? require('./app.ios.js') : require('./app.android.js');
 
-
-export default class Application extends Component {
+export default class AppContainer extends Component {
     render() {
         return (
             <Provider store={store}>
-                <AppContainer />
+                {() => <Application />}
             </Provider>
         );
     }
 }
 
+
+// export default connect(mapStateToProps, mapDispatchToProps)(AppContainer);

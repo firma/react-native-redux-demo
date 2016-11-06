@@ -6,7 +6,7 @@ import {
   View
 } from 'react-native';
 
-export default class Application extends Component {
+export default class app extends Component {
   render() {
     return (
       <View style={styles.container}>
