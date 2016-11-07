@@ -22,15 +22,14 @@ function configureStore(initialState) {
 const store = configureStore({});
 const Application = (Platform.OS === 'ios') ? require('./app.ios.js') : require('./app.android.js');
 
-export default class AppContainer extends Component {
+class AppContainer extends Component {
     render() {
         return (
             <Provider store={store}>
-                {() => <Application />}
+                <Application />
             </Provider>
         );
     }
 }
 
-
-// export default connect(mapStateToProps, mapDispatchToProps)(AppContainer);
+export default AppContainer;
