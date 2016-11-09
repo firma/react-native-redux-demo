@@ -6,8 +6,8 @@ import thunkMiddleware from 'redux-thunk';
 import createLogger from 'redux-logger';
 
 import  reducer from './reducers';
+import  AppContainer from './containers/app';
 
-const Application = (Platform.OS === 'ios') ? require('./containers/app.ios.js') : require('./containers/app.android.js');
 const loggerMiddleware = createLogger({ predicate: (getState, action) => __DEV__ });
 
 function configureStore(initialState) {
@@ -22,22 +22,9 @@ function configureStore(initialState) {
 
 const store = configureStore({});
 
-
-class Lemonveil extends Component {
-    render() {
-        return (
-            <View style={{ marginTop: 20 }}>
-                <Text style={{ marginTop: 20 }}>
-                    xxxx
-                </Text>
-            </View>
-        );
-    }
-}
-
 const App = () => (
     <Provider store={store}>
-        <Lemonveil/>
+        <AppContainer/>
     </Provider>
 )
 
