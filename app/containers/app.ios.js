@@ -7,20 +7,29 @@ import { bindActionCreators } from 'redux';
 class AppContainer extends Component {
     constructor(props) {
         super(props);
-        this.state = { recipeCount: 0 }
     }
 
-    incrementRecipeCount() {
-        this.setState({ recipeCount: this.state.recipeCount + 1 })
+    //incrementRecipeCount() {
+    //    this.setState({ recipeCount: this.state.recipeCount + 1 })
+    //}
+
+    addRecipe() {
+        this.props.addRecipe();
+    }
+
+    getUserList() {
+        this.props.getUserList();
     }
 
     render() {
         return (
             <View style={{ marginTop: 20 }}>
                 <Text style={{ marginTop: 20 }}>
-                    fuck....{this.state.recipeCount}
+                    fuck....{this.props.recipeCount}
                 </Text>
-                <TouchableHighlight onPress={()=> { this.incrementRecipeCount() }}>
+                <TouchableHighlight onPress={()=> {
+                    this.addRecipe()
+                }}>
                     <Text> add recipe</Text>
                 </TouchableHighlight>
             </View>
@@ -37,6 +46,8 @@ function mapDispatchToProps(dispatch) {
 //    };
 //}
 
-export default connect(()=> {
-    return {}
+export default connect((state)=> {
+    return {
+        recipeCount: state.recipeCount
+    }
 }, mapDispatchToProps)(AppContainer);

@@ -22,11 +22,21 @@ function configureStore(initialState) {
 
 const store = configureStore({});
 
-const App = () => (
-    <Provider store={store}>
-        <AppContainer/>
-    </Provider>
-)
+class App extends Component{
+    render() {
+        return (
+            <Provider store={store}>
+                <AppContainer/>
+            </Provider>
+        );
+    }
+}
+
+//const App = () => (
+//    <Provider store={store}>
+//        <AppContainer/>
+//    </Provider>
+//)
 
 export default App;
 
