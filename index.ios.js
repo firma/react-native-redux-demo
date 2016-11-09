@@ -5,5 +5,5 @@
  */
 
 import {AppRegistry} from 'react-native';
-import lemonveil from './app/containers/AppContainer';
+import lemonveil from './app/containers/appContainer';
 AppRegistry.registerComponent('lemonveil', () => lemonveil);

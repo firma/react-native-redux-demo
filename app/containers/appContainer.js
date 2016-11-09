@@ -20,7 +20,7 @@ function configureStore(initialState) {
 }
 
 const store = configureStore({});
-const Application = (Platform.OS === 'ios') ? require('./App.ios.js') : require('./App.android.js');
+const Application = (Platform.OS === 'ios') ? require('./app.ios.js') : require('./app.android.js');
 
 console.log(Application);
 class AppContainer extends Component {
