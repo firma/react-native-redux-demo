@@ -2,8 +2,6 @@ import React, {Component} from 'react';
 import  {View, Text} from 'react-native'
 import {connect} from 'react-redux'
 import  {ActionCreators} from '../actions/index'
-
-
 function mapDispatchToProps(dispatch) {
     return bindActionCreators(ActionCreators, dispatch);
 }
@@ -23,4 +21,5 @@ class Application extends Component {
         </View>
     }
 }
+
 export default connect(mapStateToProps, mapDispatchToProps)(Application);
