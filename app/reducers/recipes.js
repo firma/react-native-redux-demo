@@ -8,7 +8,7 @@ export const searchedRecipes = createReducer({}, {
 
             //console.log(recipe);
             let id = recipe.id
-            console.log(recipe);
+            //console.log(recipe);
             newState[id] = Object.assign({}, recipe, { id });
         });
         return newState;
@@ -16,6 +16,9 @@ export const searchedRecipes = createReducer({}, {
 });
 
 export const recipeCount = createReducer(0, {
+    [types.USER_LIST](state, action) {
+        return  action.recipes.length;
+    },
     [types.USER_REGISTER](state, action)  {
         return state + 1;
     }

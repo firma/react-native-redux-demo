@@ -10,7 +10,11 @@ import { connect } from 'react-redux';
 class Home extends Component {
 
     getUserList() {
-        this.props.fetchUsers('1');
+        this.props.fetchUsers('2');
+    }
+
+    userList() {
+        return Object.keys(this.props.searchedRecipes).map(key=>this.props.searchedRecipes[key])
     }
 
     render() {
@@ -20,7 +24,14 @@ class Home extends Component {
                     <Text> Init Data </Text>
                 </TouchableHighlight>
             </View>
-            <ScrollView>
+
+            <ScrollView >
+                {this.userList().map((recipe)=> {
+                    return <View key={recipe.id}>
+                        <Image source={{ uri: recipe.avatar }} style={{height:120}}/>
+                        <Text>{recipe.username}</Text>
+                    </View>
+                })}
             </ScrollView>
         </View>
     }
