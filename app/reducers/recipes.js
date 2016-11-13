@@ -17,7 +17,7 @@ export const searchedRecipes = createReducer({}, {
 
 export const recipeCount = createReducer(0, {
     [types.USER_LIST](state, action) {
-        return  action.recipes.length;
+        return action.recipes.length;
     },
     [types.USER_REGISTER](state, action)  {
         return state + 1;

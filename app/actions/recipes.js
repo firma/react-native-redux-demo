@@ -9,14 +9,14 @@ export function fetchUsers(ingredients) {
         ].join('&')
         return Api.get(`api/v1/user/list?${params}`).then(resp => {
 
-            dispatch(setSearchedRecipes({ recipes: resp.data }));
+            dispatch(setUserList({ recipes: resp.data }));
         }).catch((ex) => {
             console.log(ex);
         });
     }
 }
 
-export function setSearchedRecipes({ recipes }) {
+export function setUserList({ recipes }) {
     return {
         type: types.USER_LIST,
         recipes,
