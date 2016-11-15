@@ -16,6 +16,27 @@ export function fetchUsers(ingredients) {
     }
 }
 
+export function userLogin(username, password) {
+    return (dispatch, getState) => {
+        const formData = new FormData()
+        formData.append('username', `${encodeURIComponent(username)}`)
+        formData.append('password', `${encodeURIComponent(password)}`)
+
+        return Api.post(`api/v1/user/login`, formData).then(resp => {
+            dispatch(setUserInfo({ recipes: resp.data }))
+        }).catch((ex) => {
+            console.log(ex);
+        });
+    }
+}
+
+export function setUserInfo({ recipes }) {
+    return {
+        type: types.USER_INFO,
+        recipes,
+    }
+}
+
 export function setUserList({ recipes }) {
     return {
         type: types.USER_LIST,

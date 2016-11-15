@@ -15,6 +15,12 @@ export const searchedRecipes = createReducer({}, {
     },
 });
 
+export const authLogin = createReducer({}, {
+    [types.USER_INFO](state, action) {
+        return action.recipes;
+    },
+});
+
 export const recipeCount = createReducer(0, {
     [types.USER_LIST](state, action) {
         return action.recipes.length;

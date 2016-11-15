@@ -1,46 +1,58 @@
-import React, {Component} from 'react';
-import {StyleSheet, Text, View, TextInput, Image, TouchableHighlight} from 'react-native';
+import React, { Component } from 'react';
+import { StyleSheet, Text, View, TextInput, Image, TouchableHighlight } from 'react-native';
 import Dimensions from 'Dimensions';
+import { connect } from 'react-redux';
 
 let windowSize = Dimensions.get('window');
 
 const assets = {
-    'logo': require('../../assets/logo_ioc.png')
+    'logo': require('../assets/logo_ioc.png')
 };
 
-export default class Register extends Component {
+class Login extends Component {
+    //constructor(props) {
+    //    super(props)
+    //    console.log(props)
+    //    this.state = { username: '', password: '' }
+    //}
+
+    login() {
+        console.log(this.props.userLogin(this.state.username, this.state.password));
+        console.log(this.state);
+    }
+
     render() {
         return (
             <View style={styles.container}>
-                <Image style={styles.bg} source={{uri: 'http://i.imgur.com/xlQ56UK.jpg'}}/>
-                <View style={styles.header}>
-                    <Image style={styles.logo} source={require('../../assets/logo_ioc.png')}/>
-                </View>
+                <Image style={styles.bg} source={require('../assets/background.png')}/>
+                {/*<View style={styles.header}>*/}
+                {/*<Image style={styles.logo} source={require('../assets/logo_ioc.png')} />*/}
+                {/*</View>*/}
                 <View style={styles.inputs}>
                     <View style={styles.inputContainer}>
-                        <Image style={styles.inputUsername} source={{uri: 'http://i.imgur.com/iVVVMRX.png'}}/>
+                        <Image style={styles.inputUsername} source={require('../assets/login_user.png')}/>
                         <TextInput
                             style={[styles.input, styles.whiteFont]}
                             placeholder="用户名"
                             placeholderTextColor="#FFF"
-                            value=''
+                            onChangeText={(username) => this.setState({ username })}
                         />
                     </View>
                     <View style={styles.inputContainer}>
-                        <Image style={styles.inputPassword} source={{uri: 'http://i.imgur.com/ON58SIG.png'}}/>
+                        <Image style={styles.inputPassword} source={require('../assets/login_pass.png')}/>
                         <TextInput
                             password={true}
                             style={[styles.input, styles.whiteFont]}
                             placeholder="密码"
                             placeholderTextColor="#FFF"
-                            value=''
+                            onChangeText={(password) => this.setState({ password })}
                         />
                     </View>
                     <View style={styles.forgotContainer}>
                         <Text style={styles.greyFont}>忘记密码?</Text>
                     </View>
                 </View>
-                <TouchableHighlight  >
+                <TouchableHighlight onPress={ () => this.login()}>
                     <View style={styles.signin}>
                         <Text style={styles.whiteFont}>马上登陆</Text>
                     </View>
@@ -77,7 +89,7 @@ var styles = StyleSheet.create({
         resizeMode: Image.resizeMode.contain
     },
     signin: {
-        backgroundColor: '#FF3366',
+        backgroundColor: '#23ad74',
         padding: 20,
         alignItems: 'center'
     },
@@ -128,3 +140,10 @@ var styles = StyleSheet.create({
         fontSize: 20
     }
 });
+
+function mapStateToProps(state) {
+    return {
+        authLogin: state.authLogin
+    };
+}
+export default connect(mapStateToProps)(Login)

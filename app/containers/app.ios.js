@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import  { ActionCreators } from '../actions';
 import { bindActionCreators } from 'redux';
-import Home from './Home';
+import Login from '../components/login';
 
 class AppContainer extends Component {
     //constructor(props) {
@@ -10,7 +10,7 @@ class AppContainer extends Component {
     //}
 
     render() {
-        return <Home { ...this.props} />
+        return <Login { ...this.props} />
     }
 }
 

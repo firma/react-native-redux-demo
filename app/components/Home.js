@@ -6,7 +6,7 @@ import {
     StyleSheet,
 } from 'react-native';
 import { connect } from 'react-redux';
-
+import Login from './login';
 class Home extends Component {
 
     getUserList() {
@@ -18,7 +18,9 @@ class Home extends Component {
     }
 
     render() {
+
         return <View style={{ marginTop: 20 }}>
+
             <View>
                 <TouchableHighlight onPress={ () => this.getUserList()}>
                     <Text> Init Data </Text>
