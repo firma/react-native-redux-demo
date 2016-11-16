@@ -9,15 +9,15 @@ const assets = {
     'logo': require('../assets/logo_ioc.png')
 };
 
-class Login extends Component {
-    //constructor(props) {
-    //    super(props)
-    //    console.log(props)
-    //    this.state = { username: '', password: '' }
-    //}
+class login extends Component {
+    constructor(props) {
+        super(props)
+        this.state = { username: '', password: '' }
+    }
 
     login() {
-        console.log(this.props.userLogin(this.state.username, this.state.password));
+        data = this.props.userLogin(this.state.username, this.state.password);
+        console.log(data);
         console.log(this.state);
     }
 
@@ -36,6 +36,7 @@ class Login extends Component {
                             placeholder="用户名"
                             placeholderTextColor="#FFF"
                             onChangeText={(username) => this.setState({ username })}
+                            value={this.state.username}
                         />
                     </View>
                     <View style={styles.inputContainer}>
@@ -46,6 +47,7 @@ class Login extends Component {
                             placeholder="密码"
                             placeholderTextColor="#FFF"
                             onChangeText={(password) => this.setState({ password })}
+                            value={this.state.password}
                         />
                     </View>
                     <View style={styles.forgotContainer}>
@@ -146,4 +148,4 @@ function mapStateToProps(state) {
         authLogin: state.authLogin
     };
 }
-export default connect(mapStateToProps)(Login)
+export default connect(mapStateToProps)(login)

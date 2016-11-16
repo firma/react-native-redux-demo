@@ -1,22 +1,30 @@
-import React, { Component } from 'react';
+import React, { Component, PropTypes } from 'react';
 import { connect } from 'react-redux';
-import  { ActionCreators } from '../actions';
-import { bindActionCreators } from 'redux';
-import Login from '../components/login';
+import { bindActionCreators } from 'redux'
+import { ActionCreators } from '../actions'
+
+import ApplicationTabs from '../components/ApplicationTabs/ApplicationTabs';
 
 class AppContainer extends Component {
-    //constructor(props) {
-    //    super(props);
-    //}
 
     render() {
-        return <Login { ...this.props} />
+        return (
+            <ApplicationTabs {...this.props}/>
+        );
     }
+
 }
+
 
 function mapDispatchToProps(dispatch) {
     return bindActionCreators(ActionCreators, dispatch);
 }
 
+//function mapStateToProps(state) {
+//    console.log(state.navigationState)
+//    return {
+//        navigationState: state.navigationState
+//    };
+//}
 
 export default connect((state)=> {return {}}, mapDispatchToProps)(AppContainer);

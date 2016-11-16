@@ -1,7 +1,7 @@
 import createReducer from '../lib/createReducer'
 import * as types from '../actions/types'
 //
-export const searchedRecipes = createReducer({}, {
+export const getUserList = createReducer({}, {
     [types.USER_LIST](state, action) {
         let newState = {}
         action.recipes.forEach((recipe) => {

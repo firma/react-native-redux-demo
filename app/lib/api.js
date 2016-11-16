@@ -27,18 +27,13 @@ class Api {
     static xhr(route, params, verb) {
         const host = 'http://127.0.0.1:8000/app_dev.php/'
         const url = `${host}${route}`
-        console.log(url);
         let options = Object.assign({ method: verb }, params ? { body: (verb == 'POST') ? params : JSON.stringify(params) } : null);
         options.headers = Api.headers()
 
-        console.log('-----------------------------')
         return fetch(url, options).then(response => {
-            let json = response.json();
+            let json = response.json()
             if (response.ok) {
-                if (json.code == 200) {
-                    return json
-                }
-                return json.then(err => {throw err});
+                return json
             }
 
             return json.then(err => {throw err});

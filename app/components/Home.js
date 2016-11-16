@@ -6,7 +6,7 @@ import {
     StyleSheet,
 } from 'react-native';
 import { connect } from 'react-redux';
-import Login from './login';
+import Login from './Login';
 class Home extends Component {
 
     getUserList() {
@@ -40,7 +40,6 @@ class Home extends Component {
 }
 
 function mapStateToProps(state) {
-    //console.log(state);
     return {
         searchedRecipes: state.searchedRecipes
     };
