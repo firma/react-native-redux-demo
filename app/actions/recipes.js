@@ -23,7 +23,7 @@ export function userLogin(username, password) {
         formData.append('password', `${encodeURIComponent(password)}`)
 
         return Api.post(`api/v1/user/login`, formData).then(resp => {
-            dispatch(setUserInfo({ recipes: resp.data }))
+            dispatch(setUserInfo({ userInfo: resp.data }));
         }).catch((ex) => {
             console.log(ex);
         });

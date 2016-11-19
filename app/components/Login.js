@@ -8,6 +8,7 @@ let windowSize = Dimensions.get('window');
 const assets = {
     'logo': require('../assets/logo_ioc.png')
 };
+import Home from './Home';
 
 class login extends Component {
     constructor(props) {
@@ -15,19 +16,37 @@ class login extends Component {
         this.state = { username: '', password: '' }
     }
 
-    login() {
-        data = this.props.userLogin(this.state.username, this.state.password);
-        console.log(data);
-        console.log(this.state);
+    renderScene(component) {
+        return (
+            <View style={{ flex: 1 }}>
+                {React.createElement(component, this.props)}
+            </View>
+        )
     }
+
+    login() {
+        dataSourc = this.props.userLogin(this.state.username, this.state.password);
+        this.checkLogin() ? this.renderScene(Home, this.props) : '';
+    }
+
+    checkLogin() {
+
+        data = this.props.authLogin;
+        console.log(data);
+        if (data.code == 200) {
+            return true;
+        }
+        return false;
+    }
+
 
     render() {
         return (
             <View style={styles.container}>
                 <Image style={styles.bg} source={require('../assets/background.png')}/>
-                {/*<View style={styles.header}>*/}
-                {/*<Image style={styles.logo} source={require('../assets/logo_ioc.png')} />*/}
-                {/*</View>*/}
+                <View style={styles.header}>
+                    <Image style={styles.logo} source={require('../assets/logo_ioc.png')}/>
+                </View>
                 <View style={styles.inputs}>
                     <View style={styles.inputContainer}>
                         <Image style={styles.inputUsername} source={require('../assets/login_user.png')}/>

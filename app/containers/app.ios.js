@@ -3,13 +3,13 @@ import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux'
 import { ActionCreators } from '../actions'
 
-import ApplicationTabs from '../components/ApplicationTabs/ApplicationTabs';
+import Login from '../components/Login';
 
 class AppContainer extends Component {
 
     render() {
         return (
-            <ApplicationTabs {...this.props}/>
+            <Login {...this.props}/>
         );
     }
 
