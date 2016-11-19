@@ -5,7 +5,8 @@ export function fetchUsers(ingredients) {
     return (dispatch, getState) => {
         const params = [
             `page=${encodeURIComponent(ingredients)}`,
-            'pageSize=20'
+            'pageSize=20',
+            "apikey=dDsoDAZdITM1EQ"
         ].join('&')
         return Api.get(`api/v1/user/list?${params}`).then(resp => {
 
@@ -23,7 +24,11 @@ export function userLogin(username, password) {
         formData.append('password', `${encodeURIComponent(password)}`)
 
         return Api.post(`api/v1/user/login`, formData).then(resp => {
-            dispatch(setUserInfo({ userInfo: resp.data }));
+            const data = {
+                type: types.USER_INFO,
+                resp
+            };
+            dispatch(setUserInfo({ recipes: resp.data }));
         }).catch((ex) => {
             console.log(ex);
         });

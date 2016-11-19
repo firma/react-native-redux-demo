@@ -4,6 +4,7 @@ import { bindActionCreators } from 'redux'
 import { ActionCreators } from '../actions'
 
 import Login from '../components/Login';
+import Home from '../components/Home';
 
 class AppContainer extends Component {
 

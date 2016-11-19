@@ -14,7 +14,7 @@ class Home extends Component {
     }
 
     userList() {
-        return Object.keys(this.props.searchedRecipes).map(key=>this.props.searchedRecipes[key])
+        return Object.keys(this.props.getUserList).map(key=>this.props.getUserList[key])
     }
 
     render() {
@@ -41,7 +41,7 @@ class Home extends Component {
 
 function mapStateToProps(state) {
     return {
-        searchedRecipes: state.searchedRecipes
+        getUserList: state.getUserList
     };
 }
 export default connect(mapStateToProps)(Home)

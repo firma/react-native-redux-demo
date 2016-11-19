@@ -24,7 +24,7 @@ class Api {
     }
 
     static xhr(route, params, verb) {
-        const host = 'http://127.0.0.1:8000/app_dev.php/'
+        const host = 'https://www.keyed.cn/'
         const url = `${host}${route}`
         let options = Object.assign({ method: verb }, params ? { body: (verb == 'POST') ? params : JSON.stringify(params) } : null);
         options.headers = Api.headers()

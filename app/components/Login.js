@@ -26,17 +26,16 @@ class login extends Component {
 
     login() {
         dataSourc = this.props.userLogin(this.state.username, this.state.password);
-        this.checkLogin() ? this.renderScene(Home, this.props) : '';
     }
 
-    checkLogin() {
 
+    checkLogin() {
         data = this.props.authLogin;
         console.log(data);
-        if (data.code == 200) {
-            return true;
-        }
-        return false;
+        //if (data.code == 200) {
+        //    return true;
+        //}
+        //return false;
     }
 
 
@@ -75,7 +74,12 @@ class login extends Component {
                 </View>
                 <TouchableHighlight onPress={ () => this.login()}>
                     <View style={styles.signin}>
-                        <Text style={styles.whiteFont}>马上登陆</Text>
+                        <Text style={styles.whiteFont}>login</Text>
+                    </View>
+                </TouchableHighlight>
+                <TouchableHighlight onPress={ () => this.checkLogin()}>
+                    <View style={styles.signin}>
+                        <Text style={styles.whiteFont}>checklogin</Text>
                     </View>
                 </TouchableHighlight>
                 <View style={styles.signup}>
@@ -164,7 +168,7 @@ var styles = StyleSheet.create({
 
 function mapStateToProps(state) {
     return {
-        authLogin: state.authLogin
+        authLogins: state.userLogin
     };
 }
 export default connect(mapStateToProps)(login)

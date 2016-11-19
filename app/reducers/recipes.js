@@ -15,8 +15,9 @@ export const getUserList = createReducer({}, {
     },
 });
 
-export const authLogin = createReducer({}, {
+export const authLogins = createReducer({}, {
     [types.USER_INFO](state, action) {
+        console.log(action);
         return action.recipes;
     },
 });
