@@ -7,7 +7,7 @@ import { navigatePush } from '../actions/navigate'
 const mapStateToProps = (state) => {
     return {}
 }
-import { AppRoute }  from '../actions/route'
+import { AppRoute }  from '../configure/route'
 
 const mapDispatchToProps = (dispatch) => {
     return {

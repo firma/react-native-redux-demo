@@ -1,5 +1,5 @@
 // *** Action Types ***
-import * as types from './types'
+import * as types from '../configure/types'
 
 // *** Action Creators ***
 // The following action creators were derived from NavigationStackReducer

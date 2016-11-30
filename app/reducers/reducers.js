@@ -1,6 +1,6 @@
 import * as NavigationStateUtils from 'NavigationStateUtils'
-import { AppRoute } from '../actions/route'
-import { NAV_PUSH, NAV_POP, NAV_JUMP_TO_KEY, NAV_JUMP_TO_INDEX, NAV_RESET } from '../actions/types'
+import { AppRoute } from '../configure/route'
+import { NAV_PUSH, NAV_POP, NAV_JUMP_TO_KEY, NAV_JUMP_TO_INDEX, NAV_RESET } from '../configure/types'
 const initialNavState = {
     index: 0,
     routes: AppRoute.First
