@@ -4,10 +4,10 @@ import React, { PropTypes } from 'react'
 import { NavigationExperimental, StyleSheet } from 'react-native'
 import { connect } from 'react-redux'
 
-import First from '../view/First'
-import Second from '../view/Second'
-import Third from '../view/Third'
-import Modal from '../view/Modal'
+import First from '../store/First'
+import Second from '../store/Second'
+import Third from '../store/Third'
+import Modal from '../store/Modal'
 import { navigatePop } from '../actions/navigate'
 
 const {
