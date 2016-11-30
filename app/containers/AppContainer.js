@@ -2,9 +2,7 @@ import React, { Component, PropTypes } from 'react'
 import { NavigationExperimental, View, StyleSheet } from 'react-native'
 import { connect } from 'react-redux'
 
-import First from '../store/First'
-import Second from '../store/Second'
-import Third from '../store/Third'
+import  { SceneContainer } from '../lib/SceneContainer';
 import Modal from '../store/Modal'
 import { navigatePop } from '../actions/navigate'
 
@@ -12,8 +10,11 @@ const {
     Transitioner: NavigationTransitioner,
     Card: NavigationCard,
     Header: NavigationHeader
-} = NavigationExperimental
+} = NavigationExperimental;
 
+const {
+    PagerStyleInterpolator: NavigationPagerStyleInterpolator,
+} = NavigationCard;
 
 class AppContainer extends Component {
     render() {
@@ -63,30 +64,9 @@ class AppContainer extends Component {
     }
 
     _renderScene({ scene }) {
-
-
-        const { route } = scene
-        //return (
-        //    <SceneContainer
-        //        {...route}
-        //        key={scene.scene.key}
-        //    />
-        //);
-
-        switch (route.key) {
-            case 'First':
-                return <First />
-            case 'Second':
-                return <Second />
-            case 'Third':
-                return <Third />
-            case 'Modal':
-                return <Modal />
-        }
+        return SceneContainer.renderScene(scene);
     }
 }
-
-
 AppContainer.propTypes = {
     navigationState: PropTypes.object,
     backAction: PropTypes.func.isRequired
