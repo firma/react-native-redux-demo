@@ -1,5 +1,5 @@
 import { Configure } from '../configure/config'
-class Api {
+class Network {
     static headers() {
         return {
             'Accept': 'application/json',
