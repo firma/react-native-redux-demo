@@ -1,7 +1,6 @@
-import { NotFoundError, ExpiredError } from './error';
+import { NotFoundError, ExpiredError } from './Error';
 //https://github.com/sunnylqm/react-native-storage
 //http://www.lcode.org/react-native-api模块之asyncstorage持久化存储使用详解29/
-
 export default class Storage {
     constructor(options = {}) {
         let me = this;
