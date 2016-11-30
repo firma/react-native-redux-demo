@@ -1,41 +1,31 @@
 import { USER_LIST } from '../configure/types'
 // The following action creators were derived from NavigationStackReducer
-import { AsyncStorage } from 'react-native';
+import NetWork from '../lib/Network'
 
 export function fetchUsers(ingredients) {
+    return (dispatch, getState) => {
+        const params = [
+            `page=${encodeURIComponent(ingredients)}`,
+            'pageSize=20',
+            "apikey=dDsoDAZdITM1EQ"
+        ].join('&')
+        return NetWork.get(`api/v1/user/list?${params}`).then(resp => {
 
-    const params = [
-        `page=${encodeURIComponent(ingredients)}`,
-        'pageSize=20'
-    ].join('&')
+            {
+                type: USER_LIST,
+                    resp.data
+            }
 
-    return Api.get(`api/v1/user/list?${params}`).then(resp => {
-        {
-            type: USER_LIST,
-                resp.data
-        }
-        //dispatch(setUserList({ recipes: resp.data }));
-    }).catch((ex) => {
-        console.log(ex);
-    });
-
-    //
-    //return (dispatch, getState) => {
-    //    const params = [
-    //        `page=${encodeURIComponent(ingredients)}`,
-    //        'pageSize=20'
-    //    ].join('&')
-    //    return Api.get(`api/v1/user/list?${params}`).then(resp => {
-    //        dispatch(setUserList({ recipes: resp.data }));
-    //    }).catch((ex) => {
-    //        console.log(ex);
-    //    });
-    //}
+           // dispatch(setUserList({ users: resp.data }));
+        }).catch((ex) => {
+            console.log(ex);
+        });
+    }
 }
 
-export function setUserList({ recipes }) {
+export function setUserList({ users }) {
     return {
         type: types.USER_LIST,
-        recipes,
+        users,
     }
 }

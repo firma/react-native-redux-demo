@@ -1,10 +1,10 @@
 import React, { Component, PropTypes } from 'react'
 import { NavigationExperimental, View, StyleSheet } from 'react-native'
 import { connect } from 'react-redux'
-
 import  { SceneContainer } from '../lib/SceneContainer';
 import Modal from '../store/Modal'
-import { navigatePop } from '../actions/navigate'
+import { bindActionCreators } from 'redux'
+import { ActionCreators } from '../actions/index'
 
 const {
     Transitioner: NavigationTransitioner,
@@ -17,16 +17,24 @@ const {
 } = NavigationCard;
 
 class AppContainer extends Component {
-    render() {
-        let { navigationState, backAction } = this.props
-        return (
 
+    render() {
+        ////console.log(this.state)
+        let { navigationState, navigatePop } = this.props
+        console.log(navigationState)
+
+        let loginComponent = true;
+        if (navigationState.routes.key !== '"First"') {
+            loginComponent = false;
+        }
+        return (
             // Redux is handling the reduction of our state for us. We grab the navigationState
             // we have in our Redux store and pass it directly to the <NavigationTransitioner />.
             <NavigationTransitioner
                 navigationState={navigationState}
                 style={styles.container}
                 render={props => (
+
                     // This mimics the same type of work done in a NavigationCardStack component
                     <View style={styles.container}>
                         <NavigationCard
@@ -41,22 +49,24 @@ class AppContainer extends Component {
                                 NavigationCard.CardStackStyleInterpolator.forVertical(props) :
                                 undefined
                             }
-                            onNavigateBack={backAction}
+                            onNavigateBack={navigatePop}
                             // By default a user can swipe back to pop from the stack. Disable this for modals.
                             // Just like for style interpolators, returning undefined lets NavigationCard override it.
                             panHandlers={props.scene.route.key === 'Modal' ? null : undefined }
                             renderScene={this._renderScene}
                             key={props.scene.route.key}
                         />
-                        <NavigationHeader
+                        {loginComponent ? <NavigationHeader
                             {...props}
-                            onNavigateBack={backAction}
+                            onNavigateBack={navigatePop}
                             renderTitleComponent={props => {
                                 const title = props.scene.route.title
                                 return <NavigationHeader.Title>{title}</NavigationHeader.Title>
+
                             }}
                             // When dealing with modals you may also want to override renderLeftComponent...
-                        />
+                        /> : null}
+
                     </View>
                 )}
             />
@@ -67,29 +77,36 @@ class AppContainer extends Component {
         return SceneContainer.renderScene(scene);
     }
 }
-AppContainer.propTypes = {
-    navigationState: PropTypes.object,
-    backAction: PropTypes.func.isRequired
-}
-
 const styles = StyleSheet.create({
     container: {
         flex: 1
     }
 })
 
+//function mapStateToProps(state) {
+//    return {
+//        navigationState: state.navigationState
+//    };
+//}
+
+function mapDispatchToProps(dispatch) {
+    return bindActionCreators(ActionCreators, dispatch);
+}
+
 function mapStateToProps(state) {
     return {
         navigationState: state.navigationState
     };
-
 }
 
-export default connect(
-    mapStateToProps,
-    dispatch => ({
-        backAction: () => {
-            dispatch(navigatePop())
-        }
-    })
-)(AppContainer)
+
+export default connect(mapStateToProps, mapDispatchToProps)(AppContainer);
+
+//export default connect(
+//    mapStateToProps,
+//    dispatch => ({
+//        backAction: () => {
+//            dispatch(navigatePop())
+//        }
+//    })
+//)(AppContainer)
