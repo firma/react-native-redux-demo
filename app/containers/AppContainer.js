@@ -7,7 +7,7 @@ import Second from '../store/Second'
 import Third from '../store/Third'
 import Modal from '../store/Modal'
 import { navigatePop } from '../actions/navigate'
-//http://www.lcode.org/react-native-api模块之asyncstorage持久化存储使用详解29/
+
 const {
     Transitioner: NavigationTransitioner,
     Card: NavigationCard,
