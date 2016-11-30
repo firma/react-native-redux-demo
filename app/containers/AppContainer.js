@@ -7,7 +7,7 @@ import Second from '../view/Second'
 import Third from '../view/Third'
 import Modal from '../view/Modal'
 import { navigatePop } from '../actions/navigate'
-
+//http://www.lcode.org/react-native-api模块之asyncstorage持久化存储使用详解29/
 const {
     Transitioner: NavigationTransitioner,
     Card: NavigationCard,
@@ -18,7 +18,6 @@ const {
 class AppContainer extends Component {
     render() {
         let { navigationState, backAction } = this.props
-
         return (
 
             // Redux is handling the reduction of our state for us. We grab the navigationState
