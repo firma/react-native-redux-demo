@@ -4,10 +4,8 @@
  * @flow
  */
 
-import React, {
-  AppRegistry,
-} from 'react-native';
- 
-import App from './app/lemonveil';
+import React from 'react';
+import {AppRegistry} from 'react-native';
+import App from './app/app'
 
 AppRegistry.registerComponent('lemonveil', () => App);

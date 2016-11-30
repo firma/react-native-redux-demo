@@ -1,8 +1,9 @@
-import { combineReducers } from 'redux';
-import * as recipesReducer from './recipes'
-import * as navigationReducer from './navigation'
+import { combineReducers } from 'redux'
+import { navigationState } from './reducers'
 
-export default combineReducers(Object.assign(
-    recipesReducer,
-    navigationReducer,
-));
+
+const appReducers = combineReducers({
+    navigationState
+})
+
+export default appReducers;
