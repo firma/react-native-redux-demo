@@ -13,7 +13,7 @@ The semaphores are updated automatically server-side (just polling every 5 secon
 ## JS stack
 
 * ES6, Webpack, Babel
-* React 0.14.0-beta1 + Redux 1.0.0 + React-router 1.0.0-beta3
+* React   + Redux   +  redux-thunk
 * [fetch](https://github.com/github/fetch))
 
 
