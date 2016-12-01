@@ -1,4 +1,4 @@
-# React + Redux + React-Router demo
+# React Native + Redux  demo
 
 ## Introduction
 
@@ -33,10 +33,6 @@ The semaphores are updated automatically server-side (just polling every 5 secon
     npm install
     react-native run-ios 
     react-native run-android
-
-
-
-Find build at `./build/bundle.js`.
 
 ## TODO
 
