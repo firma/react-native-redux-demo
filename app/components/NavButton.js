@@ -3,8 +3,8 @@ import { TouchableOpacity, Text, StyleSheet } from 'react-native'
 
 const NavButton = (props) => {
     return (
-        <TouchableOpacity style={styles.button} onPress={props.buttonHandler}>
-            <Text style={styles.label}>Go to {props.destLabel} Page</Text>
+        <TouchableOpacity style={styles.signin} onPress={props.buttonHandler}>
+            <Text style={styles.label}> {props.destLabel} </Text>
         </TouchableOpacity>
     )
 }
@@ -23,7 +23,17 @@ const styles = StyleSheet.create({
     label: {
         color: '#F4F4E9',
         textAlign: 'center'
-    }
+    },
+    signin: {
+        backgroundColor: '#23ad74',
+        padding: 20,
+        alignItems: 'center'
+    },
+    signup: {
+        justifyContent: 'center',
+        alignItems: 'center',
+        flex: .15
+    },
 })
 
 export default NavButton

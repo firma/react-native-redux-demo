@@ -49,16 +49,9 @@ const FirstScreen = (props) => {
                     <Text style={styles.greyFont}>忘记密码?</Text>
                 </View>
             </View>
-            <TouchableHighlight onPress={ () => this.login()}>
-                <View style={styles.signin}>
-                    <Text style={styles.whiteFont}>login</Text>
-                </View>
-            </TouchableHighlight>
-            <TouchableHighlight onPress={ () => this.checkLogin()}>
-                <View style={styles.signin}>
-                    <Text style={styles.whiteFont}>checklogin</Text>
-                </View>
-            </TouchableHighlight>
+
+            <NavButton tyle={styles.signin} destLabel="Login" buttonHandler={props.onButtonPress}/>
+
             <View style={styles.signup}>
             </View>
         </View>
