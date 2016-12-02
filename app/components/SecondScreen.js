@@ -6,7 +6,7 @@ import NavButton from './NavButton'
 const SecondScreen = (props) => {
     return (
         <View style={styles.container}>
-            <Text style={styles.title}>Second Screen</Text>
+            <Text style={styles.title}>Index</Text>
 
             <NavButton destLabel="Third" buttonHandler={props.onButtonPress}/>
 

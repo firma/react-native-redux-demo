@@ -6,7 +6,7 @@ import NavButton from './NavButton'
 const ModalScreen = (props) => {
     return (
         <View style={styles.container}>
-            <Text style={styles.title}>This is a Modal Screen</Text>
+            <Text style={styles.title}>  Modal </Text>
 
             <NavButton destLabel="Second" buttonHandler={props.onButtonPress}/>
         </View>

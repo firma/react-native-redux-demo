@@ -6,9 +6,9 @@ import NavButton from './NavButton'
 const ThirdScreen = (props) => {
     return (
         <View style={styles.container}>
-            <Text style={styles.title}>Third Screen</Text>
+            <Text style={styles.title}>Logout </Text>
 
-            <NavButton destLabel="Home" buttonHandler={props.onButtonPress}/>
+            <NavButton destLabel="Logout" buttonHandler={props.onButtonPress}/>
         </View>
     )
 }
