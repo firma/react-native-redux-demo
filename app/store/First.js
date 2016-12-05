@@ -6,6 +6,7 @@ import { fetchUsers } from '../actions/user'
 
 
 const mapStateToProps = (state) => {
+
     return {
         navigationState: state.navigationState,
         navigationState: state.navigationState
@@ -18,7 +19,9 @@ const mapDispatchToProps = (dispatch) => {
         onButtonPress: () => {
             dispatch(navigatePush('Second'))
         },
-        onLoad: (e) => {
+        onLogin: () => {
+
+            console.log(this.state)
             dispatch(fetchUsers(11))
         }
     }
