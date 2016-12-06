@@ -1,6 +1,7 @@
 import React, { Component, PropTypes } from 'react'
-import First from '../store/First'
+//import First from '../store/First'
 import Second from '../store/Second'
+import First from '../components/Init'
 import Third from '../store/Third'
 import Modal from '../store/Modal'
 

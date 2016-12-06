@@ -1,6 +1,6 @@
 import { connect } from 'react-redux'
 
-import FirstScreen from '../components/FirstScreen'
+import FirstScreen from '../components/Init'
 import { navigatePush } from '../actions/navigate'
 import { fetchUsers } from '../actions/user'
 
@@ -9,7 +9,7 @@ const mapStateToProps = (state) => {
 
     return {
         navigationState: state.navigationState,
-        navigationState: state.navigationState
+        authLogins: state.authLogins
     };
 
 }
@@ -20,9 +20,13 @@ const mapDispatchToProps = (dispatch) => {
             dispatch(navigatePush('Second'))
         },
         onLogin: () => {
+            this.getState;
 
-            console.log(this.state)
             dispatch(fetchUsers(11))
+        },
+        userLogin: (username,password)=> {
+            console.log(username+password);
+            dispatch(navigatePush('Second'))
         }
     }
 }

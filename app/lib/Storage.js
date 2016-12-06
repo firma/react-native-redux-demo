@@ -1,7 +1,8 @@
 import { NotFoundError, ExpiredError } from './Error';
+//import { AsyncStorage } from 'react-native';
 //https://github.com/sunnylqm/react-native-storage
 //http://www.lcode.org/react-native-api模块之asyncstorage持久化存储使用详解29/
-export default class Storage {
+export class Storage {
     constructor(options = {}) {
         let me = this;
 
@@ -10,7 +11,7 @@ export default class Storage {
         me.defaultExpires = options.defaultExpires !== undefined ?
             options.defaultExpires : 1000 * 3600 * 24;
         me.enableCache = options.enableCache !== false;
-        me._s = options.storageBackend || null;
+        me._s = options.storageBackend || AsyncStorage;
         me._innerVersion = 11;
         me.cache = {};
 
@@ -365,3 +366,4 @@ export default class Storage {
     }
 
 }
+

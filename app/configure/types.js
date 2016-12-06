@@ -6,3 +6,4 @@ export const NAV_JUMP_TO_INDEX = 'NAV_JUMP_TO_INDEX'
 export const NAV_RESET = 'NAV_RESET'
 
 export const USER_LIST = 'USER_LIST'
+export const USER_INFO = 'USER_INFO'

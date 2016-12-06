@@ -21,12 +21,12 @@ class AppContainer extends Component {
     render() {
         ////console.log(this.state)
         let { navigationState, navigatePop } = this.props
-        console.log(navigationState)
 
         let loginComponent = true;
         if (navigationState.routes.key !== '"First"') {
             loginComponent = false;
         }
+        
         return (
             // Redux is handling the reduction of our state for us. We grab the navigationState
             // we have in our Redux store and pass it directly to the <NavigationTransitioner />.
