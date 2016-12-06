@@ -4,4 +4,5 @@ export const AppRoute = {
     'Third': [{ key: 'Third', title: 'Third' }],
     'Modal': [{ key: 'Modal', title: 'Modal' }],
     'Second': [{ key: 'Second', title: 'Second' }],
+    'Second': [{ key: 'Second', title: 'Second' }],
 }
